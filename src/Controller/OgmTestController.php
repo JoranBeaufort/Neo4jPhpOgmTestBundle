@@ -4,10 +4,6 @@ namespace JoranBeaufort\Neo4jPhpOgmTestBundle\Controller;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\Form\AbstractType;
-use Symfony\Component\Form\FormBuilderInterface;
-use Symfony\Component\Form\FormError;
-use Symfony\Component\Filesystem\Filesystem;
 use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 
 use JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\User;
@@ -23,12 +19,18 @@ class OgmTestController extends Controller
         
         // Create new test user
         $user = new User('Bob');
+        print('new user created');
+        print('\n');
         
         // Create new test team
         $team = new Team('Blue Berries');
+        print('new team created');
+        print('\n');
 
         // Create new relationship user -[in_team]-> team
         $user->addTeam($team, time());
+        print('new user added to new team');
+        print('\n');
         
         // persist all the things
         $em->persist($team);
