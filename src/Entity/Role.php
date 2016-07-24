@@ -21,8 +21,8 @@ class Role
     private $id;
     
     /**
-     * @OGM\Relationship(type="HAS_ROLE", direction="INCOMING", targetEntity="User", collection=true)
-     * @var ArrayCollection|User[]
+     * @OGM\Relationship(type="HAS_ROLE", direction="INCOMING", targetEntity="\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\User", collection=true)
+     * @var ArrayCollection|\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\User[]
      */
      
     protected $users;
@@ -36,9 +36,10 @@ class Role
         
     
     
-    public function __construct()
+    public function __construct($roleType)
     {
         $this->users = new ArrayCollection();
+        $this->roleType = $roleType;
     }
     
     
@@ -54,7 +55,7 @@ class Role
 
     
     /**
-     * @return \Doctrine\Common\Collections\ArrayCollection|User[]
+     * @return \Doctrine\Common\Collections\ArrayCollection|\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\User[]
      */
     public function getUsers()
     {
@@ -62,7 +63,7 @@ class Role
     }
 
     /**
-     * @param User $user
+     * @param \JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\User $user
      */
     public function addUser(User $user)
     {
@@ -72,7 +73,7 @@ class Role
     }
 
     /**
-     * @param User $user
+     * @param \JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\User $user
      */
     public function removeUser(User $user)
     {

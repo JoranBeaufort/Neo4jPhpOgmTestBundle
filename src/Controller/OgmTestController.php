@@ -9,6 +9,7 @@ use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 use JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\User;
 use JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserTeam;
 use JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Team;
+use JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Role;
 
 class OgmTestController extends Controller
 {    
@@ -22,6 +23,13 @@ class OgmTestController extends Controller
         print('new team created');
         echo('\n');
         $em->persist($team);
+        
+        // Create new test role
+        $team = new Role('role_user');
+        print('new role created');
+        echo('
+        ');
+        $em->persist($team);
 
         
         // Create new test user
@@ -33,6 +41,11 @@ class OgmTestController extends Controller
         // Create new relationship user -[in_team]-> team
         $user->addTeam($team, time());
         print('new user added to new team');
+        echo('\n');
+        
+        // Create new relationship user -[role]-> role
+        $user->addRole($role,);
+        print('new role added to new user');
         echo('\n');
         
         // persist all the things

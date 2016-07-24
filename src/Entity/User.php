@@ -37,7 +37,7 @@ class User
     
     /**
      * @OGM\Relationship(type="HAS_ROLE", direction="OUTGOING", targetEntity="Role", collection=true, mappedBy="users")
-     * @var ArrayCollection|Role[]
+     * @var ArrayCollection|\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Role[]
      */
     protected $roles;
         
