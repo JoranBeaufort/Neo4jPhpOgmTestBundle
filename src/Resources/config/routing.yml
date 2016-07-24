@@ -1,0 +1,4 @@
+# app/config/routing.yml
+neo4j_php_ogm_test:
+    path:     /test/neo4j/ogm
+    defaults: { _controller: Neo4jPhpOgmTestBundle:OgmTest:test }

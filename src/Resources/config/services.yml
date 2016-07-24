@@ -1,0 +1,8 @@
+parameters:
+    neo4j_php_ogm_test.graph_manager.class: JoranBeaufort\Neo4jPhpOgmTestBundle\Manager\GraphManager
+
+        
+services:
+    neo4j_php_ogm_test.graph_manager:
+        class: %neo4j_php_ogm_test.graph_manager.class%
+        arguments: []
