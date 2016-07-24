@@ -49,7 +49,7 @@ class User
     protected $userResources;
     
     /**
-     * @OGM\Relationship(relationshipEntity="\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserTeam", type="IN_TEAM", direction="OUTGOING", collection=false)
+     * @OGM\Relationship(relationshipEntity="\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserTeam", type="IN_TEAM", direction="OUTGOING", collection=false, mappedBy="user")
      * @var  \JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserTeam
      */
     protected $userTeam;

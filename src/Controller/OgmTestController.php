@@ -45,9 +45,8 @@ class OgmTestController extends Controller
         $em->persist($user);
         $em->flush(); 
 
-        $user = $em->getRepository(User::class)->findOneBy('username','Bob');
-        
-        echo 'User Role: '.$user->getRole()->getMetaRole()->getMetaRoleType();
+        echo 'User Role: '.$user->getRole()->getMetaRole()->getMetaRoleType().'<br>';
+        echo 'User Team: '.$user->getTeam()->getTeam()->getName().' at '.$user->getTeam()->getJoined().'<br>';
 
         die;
         return $this->render('Neo4jPhpOgmTestBundle:default:index.html.twig');
