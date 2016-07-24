@@ -18,7 +18,7 @@ class Configuration implements ConfigurationInterface
     public function getConfigTreeBuilder()
     {
         $treeBuilder = new TreeBuilder();
-        $rootNode = $treeBuilder->root('neo4j_user');
+        $rootNode = $treeBuilder->root('neo4j_php_ogm_test');
         
         $rootNode
             ->children()
