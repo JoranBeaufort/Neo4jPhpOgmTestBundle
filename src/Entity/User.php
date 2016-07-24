@@ -100,7 +100,7 @@ class User
      */
     public function addRole(Role $role)
     {
-            $this->roles = $role;
+            $this->role = $role;
     }
 
     /**

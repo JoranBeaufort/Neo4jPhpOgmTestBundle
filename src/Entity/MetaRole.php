@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use GraphAware\Neo4j\OGM\Annotations as OGM;
 
 /**
- * @OGM\Node(label="TEST_Role")
+ * @OGM\Node(label="TEST_MetaRole")
  */
  
 class MetaRole

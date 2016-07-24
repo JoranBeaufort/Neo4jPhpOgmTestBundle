@@ -20,12 +20,9 @@ class OgmTestController extends Controller
         
         // Create new test team
         $team = new Team('Blue Berries');
-        $em->persist($team);
         
         // Create new test role
         $role = new Role('role_user');
-        $em->persist($role);
-
         
         // Create new test user
         $user = new User('Bob');
@@ -41,7 +38,7 @@ class OgmTestController extends Controller
         $em->persist($user);
         $em->flush(); 
 
-        $user = $em->getRepository(User::class)->findOneBy('name','Bob');
+        $user = $em->getRepository(User::class)->findOneBy('username','Bob');
         
         echo 'User Role: '.$user->getRole()->getRoleType();
 
