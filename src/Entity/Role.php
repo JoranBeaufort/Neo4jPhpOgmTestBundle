@@ -92,6 +92,14 @@ class Role
     /**
      * @return \Doctrine\Common\Collections\ArrayCollection|\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\MetaRole
      */
+    public function addMetaRole()
+    {
+        $this->metaRole = $metaRole;
+    }
+    
+    /**
+     * @return \Doctrine\Common\Collections\ArrayCollection|\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\MetaRole
+     */
     public function getMetaRole()
     {
         return $this->metaRole;

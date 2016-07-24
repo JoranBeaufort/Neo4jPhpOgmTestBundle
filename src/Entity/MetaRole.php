@@ -29,10 +29,10 @@ class MetaRole
         
     
     
-    public function __construct($roleType)
+    public function __construct($metaRoleType)
     {
         $this->users = new ArrayCollection();
-        $this->roleType = $roleType;
+        $this->metaRoleType = $metaRoleType;
     }
     
     

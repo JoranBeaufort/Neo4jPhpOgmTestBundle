@@ -10,6 +10,7 @@ use JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\User;
 use JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserTeam;
 use JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Team;
 use JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Role;
+use JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\MetaRole;
 
 class OgmTestController extends Controller
 {    
@@ -23,6 +24,12 @@ class OgmTestController extends Controller
         
         // Create new test role
         $role = new Role('role_user');
+        
+        // create new metarole
+        $metarole = new MetaRole('meta_role_user');
+        
+        // add meta role to role
+        $role->addMetaRole($metarole);
         
         // Create new test user
         $user = new User('Bob');
