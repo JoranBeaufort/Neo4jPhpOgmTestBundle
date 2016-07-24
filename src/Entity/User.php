@@ -37,8 +37,8 @@ class User
     private $username;    
     
     /**
-     * @OGM\Relationship(type="HAS_ROLE", direction="OUTGOING", targetEntity="\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Role", collection=true, mappedBy="users")
-     * @var ArrayCollection|\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Role[]
+     * @OGM\Relationship(type="HAS_ROLE", direction="OUTGOING", targetEntity="\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Role", collection=false)
+     * @var \JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Role
      */
     protected $roles;
         
@@ -105,9 +105,7 @@ class User
      */
     public function addRole(Role $role)
     {
-        if (!$this->roles->contains($role)) {
-            $this->roles->add($role);
-        }
+            $this->roles = $role;
     }
 
     /**
