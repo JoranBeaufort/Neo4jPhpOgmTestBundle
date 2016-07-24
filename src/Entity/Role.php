@@ -39,8 +39,6 @@ class Role
      * @var \JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\MetaRole
      */
     protected $metaRole;
-
-        
     
     
     public function __construct($roleType)

@@ -1,10 +1,9 @@
 <?php
 namespace JoranBeaufort\Neo4jPhpOgmTestBundle\Controller;
 
+use GraphAware\Neo4j\OGM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 
 use JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\User;
 use JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserTeam;
@@ -16,8 +15,11 @@ class OgmTestController extends Controller
 {    
     public function testAction(Request $request)
     {
+
         // Get the entity manager
+        /** @var EntityManager $em */
         $em = $this->get('neo4j_php_ogm_test.graph_manager')->getClient();
+        $em->getDatabaseDriver()->run("MATCH (n) DETACH DELETE n");
         
         // Create new test team
         $team = new Team('Blue Berries');
@@ -43,7 +45,12 @@ class OgmTestController extends Controller
         
         // persist all the things
         $em->persist($user);
-        $em->flush(); 
+        $em->persist($team);
+        $em->flush();
+
+        // Clearing the UOW to make sure we retrieve objects from the database and not from the mapping context
+        $em->clear();
+
 
         echo 'User Role: '.$user->getRole()->getMetaRole()->getMetaRoleType().'<br>';
         echo 'User Team: '.$user->getTeam()->getTeam()->getName().' at '.$user->getTeam()->getJoined().'<br>';

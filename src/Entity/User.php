@@ -41,9 +41,8 @@ class User
      * @var \JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Role
      */
     protected $role;
-        
+
     /**
-     * @OGM\Relationship(relationshipEntity="\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserResource", type="HAS_RESOURCE", direction="OUTGOING", collection=true)
      * @var ArrayCollection|\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserResource[]
      */
     protected $userResources;
@@ -53,12 +52,6 @@ class User
      * @var  \JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserTeam
      */
     protected $userTeam;
-    
-    /**
-     * @OGM\Relationship(relationshipEntity="\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserTile", type="CAPTURED", direction="OUTGOING", collection=true)
-     * @var  ArrayCollection|\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserTile[]
-     */
-    protected $userTiles;
     
     public function __construct($username)
     {

@@ -25,7 +25,7 @@ class UserTeam
 
     /**
      * @OGM\EndNode(targetEntity="JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Team")
-     * @var JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Team
+     * @var \JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Team
      */
     protected $team;
     
