@@ -40,7 +40,7 @@ class User
      * @OGM\Relationship(type="HAS_ROLE", direction="OUTGOING", targetEntity="\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Role", collection=false)
      * @var \JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Role
      */
-    protected $roles;
+    protected $role;
         
     /**
      * @OGM\Relationship(relationshipEntity="\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserResource", type="HAS_RESOURCE", direction="OUTGOING", collection=true)
@@ -87,16 +87,11 @@ class User
     }
     
     /**
-     * @return \Doctrine\Common\Collections\ArrayCollection|\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Role[]
+     * @return \Doctrine\Common\Collections\ArrayCollection|\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Role
      */
-    public function getRoles()
+    public function getRole()
     {
-        $roles = array();
-        foreach($this->roles as $role){
-            array_push($roles,$role->getRoleType());
-        }
-        
-        return $roles;
+        return $this->role;
     }
         
     

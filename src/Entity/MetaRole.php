@@ -12,34 +12,20 @@ use GraphAware\Neo4j\OGM\Annotations as OGM;
  * @OGM\Node(label="TEST_Role")
  */
  
-class Role
+class MetaRole
 {
     /**
      * @OGM\GraphId()
      * @var int
      */
     private $id;
-    
-    /**
-     * @OGM\Relationship(type="HAS_ROLE", direction="INCOMING", targetEntity="\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\User", collection=true)
-     * @var ArrayCollection|\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\User[]
-     */
-     
-    protected $users;
-    
+        
     /**
      * @OGM\Property(type="string")
      * @var string
      */
      
-    private $roleType;
-    
-    /**
-     * @OGM\Relationship(type="HAS_METAROLE", direction="OUTGOING", targetEntity="\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\MetaRole", collection=false)
-     * @var \JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\MetaRole
-     */
-    protected $metaRole;
-
+    private $metaRoleType;
         
     
     
@@ -88,13 +74,4 @@ class Role
             $this->users->removeElement($user);
         }
     }
-    
-    /**
-     * @return \Doctrine\Common\Collections\ArrayCollection|\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\MetaRole
-     */
-    public function getMetaRole()
-    {
-        return $this->metaRole;
-    }
-
 }

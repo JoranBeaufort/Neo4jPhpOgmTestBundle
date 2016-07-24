@@ -20,40 +20,31 @@ class OgmTestController extends Controller
         
         // Create new test team
         $team = new Team('Blue Berries');
-        print('new team created');
-        echo('\n');
         $em->persist($team);
         
         // Create new test role
         $role = new Role('role_user');
-        print('new role created');
-        echo('\n');
         $em->persist($role);
 
         
         // Create new test user
         $user = new User('Bob');
-        print('new user created');
-        echo('\n');
-        
+       
 
         // Create new relationship user -[in_team]-> team
         $user->addTeam($team, time());
-        print('new user added to new team');
-        echo('\n');
         
         // Create new relationship user -[role]-> role
         $user->addRole($role);
-        print('new role added to new user');
-        echo('\n');
         
         // persist all the things
         $em->persist($user);
         $em->flush(); 
-        print('flushed');die;
+
+        $user = $em->getRepository(User::class)->findOneBy('name','Bob');
         
-        var_dump($user->getTeam());die;
-        
+        echo 'User Role: '.$user->getRole()->getRoleType();
+
         
         return $this->render('Neo4jPhpOgmTestBundle:default:index.html.twig');
     }
