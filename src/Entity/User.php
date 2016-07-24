@@ -15,6 +15,7 @@ use JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserTeam;
 use JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Team;
 use JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserTile;
 use JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Tile;
+use JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Role;
     
 /**
  * @OGM\Node(label="TEST_User")
@@ -36,7 +37,7 @@ class User
     private $username;    
     
     /**
-     * @OGM\Relationship(type="HAS_ROLE", direction="OUTGOING", targetEntity="Role", collection=true, mappedBy="users")
+     * @OGM\Relationship(type="HAS_ROLE", direction="OUTGOING", targetEntity="\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Role", collection=true, mappedBy="users")
      * @var ArrayCollection|\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Role[]
      */
     protected $roles;
@@ -65,6 +66,7 @@ class User
         $this->userResources = new ArrayCollection();
         $this->userTeam = new ArrayCollection();
         $this->userTiles = new ArrayCollection();
+        $this->roles = new ArrayCollection();
     }
 
     // other properties and methods

@@ -13,12 +13,12 @@ To install include following in your composer.json:
     "repositories": [
     {
         "type": "vcs",
-        "url": "https://github.com/joranbeaufort/neo4juserbundle"
+        "url": "https://github.com/joranbeaufort/neo4jphpogmtestbundle"
         }
     ]
 ...
 "require": {
-    "joranbeaufort/neo4juserbundle": "dev-master"
+    "joranbeaufort/neo4jphpogmtestbundle":"dev-master"
 }
 ...
 ```
@@ -26,7 +26,7 @@ To install include following in your composer.json:
 Next, add following config to your `/app/config/config.yml` depending on your connection to Neo4j:
 
 ```
-neo4j_user:
+neo4j_php_ogm_test:
     username: neo4j
     password: neo4j
     url: localhost
@@ -34,76 +34,10 @@ neo4j_user:
     protocol: bolt   # Default: http
 ```
 
-Add following to your `/app/config/parameters.yml` and change as desired:
-
-```
-    neo4j_user.directory: '%kernel.root_dir%/../web/users'
-    neo4j_user.mail.subject.registration: 'Registration'
-    neo4j_user.mail.subject.emailedit: 'Email Updated'
-    neo4j_user.mail.subject.passwordreset: 'Password Reset'
-``` 
-
-Create a 'Role' node with the property 'roleType' = 'ROLE_USER' in the Neo4j Graph
-
-``` 
-CREATE (r:Role{roleType:'ROLE_USER'}) 
-```
-
-In your web directory, create a folder named "defaults" and add a default user image with the name "user.png".
-Change the twig template files to suite your installation!
-
-* This bundle uses Swiftmail. The swiftmail `mailer_user` is used as the default send address.
-
 ### Routes
 This bundle comes with a few predefined routes:
 ```
-neo4j_register:
-    path:     /register
-    defaults: { _controller: Neo4jUserBundle:Registration:register }
-
-neo4j_register_check_email:
-    path:     /checkmail
-    defaults: { _controller: Neo4jUserBundle:Registration:checkEmail }
-
-neo4j_register_confirm_email:
-    path:     /confirm/{token}
-    defaults: { _controller: Neo4jUserBundle:Registration:confirmed }
-    
-neo4j_login:
-    path:     /login
-    defaults: { _controller: Neo4jUserBundle:Security:login }
-    
-neo4j_password_reset:
-    path:     /passwordreset
-    defaults: { _controller: Neo4jUserBundle:Security:passwordReset }
-
-neo4j_login_check:
-    path: /login_check
-    # no controller is bound to this route
-    # as it's handled by the Security system
-    
-neo4j_logout:    
-    path: /logout
-    # no controller is bound to this route
-    # as it's handled by the Security system
-    
-neo4j_profile:
-    path: /user/{slug}
-    defaults: { _controller: Neo4jUserBundle:User:profile }
-    
-neo4j_profile_edit:
-    path: /edit/{slug}
-    defaults: { _controller: Neo4jUserBundle:User:profileEdit }
-
-neo4j_profile_update_email:
-    path:     /updateemail/{token}
-    defaults: { _controller: Neo4jUserBundle:User:confirmUpdatedEmail }
+neo4j_php_ogm_test:
+    path:     /test/neo4j/ogm
+    defaults: { _controller: Neo4jPhpOgmTestBundle:OgmTest:test }
 ```
-
-
-### Disclaimer
-I am fairly new to Symfony and I expect the code to be mediocre at best. Improvements are welcome :)
-
-### ToDo
-Translation file
-

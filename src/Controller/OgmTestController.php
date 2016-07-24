@@ -25,11 +25,10 @@ class OgmTestController extends Controller
         $em->persist($team);
         
         // Create new test role
-        $team = new Role('role_user');
+        $role = new Role('role_user');
         print('new role created');
-        echo('
-        ');
-        $em->persist($team);
+        echo('\n');
+        $em->persist($role);
 
         
         // Create new test user
@@ -44,7 +43,7 @@ class OgmTestController extends Controller
         echo('\n');
         
         // Create new relationship user -[role]-> role
-        $user->addRole($role,);
+        $user->addRole($role);
         print('new role added to new user');
         echo('\n');
         
