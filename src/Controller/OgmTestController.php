@@ -36,6 +36,7 @@ class OgmTestController extends Controller
         $em->persist($team);
         $em->persist($user);
         $em->flush(); 
+        print('flushed');die;
         
         var_dump($user->getTeam());die;
         
