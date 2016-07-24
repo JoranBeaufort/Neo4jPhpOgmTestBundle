@@ -1,8 +1,5 @@
 # Neo4jUserBundle
 
-This bundle connects Symfony 3+ with Neo4j 3+ to store and retrieve user information from the neo4j-graph. 
-This Bundle requires the Neo4j-PHP-OGM plugin from GraphAware: https://github.com/graphaware/neo4j-php-ogm
-I have also used the MaterialDesignBootstrap framework in my TWIG files: http://mdbootstrap.com/
 
 ### Install
 

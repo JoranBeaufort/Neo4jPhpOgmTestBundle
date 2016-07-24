@@ -49,8 +49,8 @@ class User
     protected $userResources;
     
     /**
-     * @OGM\Relationship(relationshipEntity="\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserTeam", type="IN_TEAM", direction="OUTGOING", collection=true)
-     * @var  ArrayCollection|\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserTeam[]
+     * @OGM\Relationship(relationshipEntity="\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserTeam", type="IN_TEAM", direction="OUTGOING", collection=false)
+     * @var  \JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserTeam
      */
     protected $userTeam;
     
@@ -162,11 +162,11 @@ class User
     }
     
     /**
-     * @return \Doctrine\Common\Collections\ArrayCollection|\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserTeam[]
+     * @return \Doctrine\Common\Collections\ArrayCollection|\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserTeam
      */   
     public function getTeam()
     {        
-        return $this->userTeam->first();
+        return $this->userTeam;
     }
     
     /**
@@ -175,7 +175,7 @@ class User
      */
     public function addTeam(Team $team, $joined)
     {
-        $this->userTeam->add(new UserTeam($this, $team, $joined));
+        $this->userTeam = new UserTeam($this, $team, $joined);
     }
     
     /**
