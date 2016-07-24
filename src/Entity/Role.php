@@ -92,7 +92,7 @@ class Role
     /**
      * @return \Doctrine\Common\Collections\ArrayCollection|\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\MetaRole
      */
-    public function addMetaRole()
+    public function addMetaRole($metaRole)
     {
         $this->metaRole = $metaRole;
     }

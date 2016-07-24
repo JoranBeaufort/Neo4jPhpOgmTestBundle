@@ -47,9 +47,9 @@ class OgmTestController extends Controller
 
         $user = $em->getRepository(User::class)->findOneBy('username','Bob');
         
-        echo 'User Role: '.$user->getRole()->getRoleType();
+        echo 'User Role: '.$user->getRole()->getMetaRole()->getMetaRoleType();
 
-        
+        die;
         return $this->render('Neo4jPhpOgmTestBundle:default:index.html.twig');
     }
 

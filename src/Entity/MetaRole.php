@@ -31,19 +31,18 @@ class MetaRole
     
     public function __construct($metaRoleType)
     {
-        $this->users = new ArrayCollection();
         $this->metaRoleType = $metaRoleType;
     }
     
     
-    public function getRoleType()
+    public function getMetaRoleType()
     {
-        return $this->roleType;
+        return $this->metaRoleType;
     }
 
-    public function setRoleType($roleType)
+    public function setMetaRoleType($metaRoleType)
     {
-        $this->roleType = $roleType;
+        $this->metaRoleType = $metaRoleType;
     }
 
     
@@ -53,25 +52,5 @@ class MetaRole
     public function getUsers()
     {
         return $this->users;
-    }
-
-    /**
-     * @param \JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\User $user
-     */
-    public function addUser(User $user)
-    {
-        if (!$this->users->contains($user)) {
-            $this->users->add($user);
-        }
-    }
-
-    /**
-     * @param \JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\User $user
-     */
-    public function removeUser(User $user)
-    {
-        if ($this->users->contains($user)) {
-            $this->users->removeElement($user);
-        }
     }
 }
