@@ -162,7 +162,7 @@ class User
     }
     
     /**
-     * @return \Doctrine\Common\Collections\ArrayCollection|\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserTeam
+     * @return \JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserTeam
      */   
     public function getTeam()
     {        
