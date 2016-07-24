@@ -19,7 +19,7 @@ class OgmTestController extends Controller
         // Get the entity manager
         /** @var EntityManager $em */
         $em = $this->get('neo4j_php_ogm_test.graph_manager')->getClient();
-        $em->getDatabaseDriver()->run("MATCH (n) DETACH DELETE n");
+        // $em->getDatabaseDriver()->run("MATCH (n) DETACH DELETE n");
         
         // Create new test team
         $team = new Team('Blue Berries');
