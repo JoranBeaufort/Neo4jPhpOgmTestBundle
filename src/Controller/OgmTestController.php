@@ -17,23 +17,25 @@ class OgmTestController extends Controller
         // Get the entity manager
         $em = $this->get('neo4j_php_ogm_test.graph_manager')->getClient();
         
-        // Create new test user
-        $user = new User('Bob');
-        print('new user created');
-        print('\n');
-        
         // Create new test team
         $team = new Team('Blue Berries');
         print('new team created');
-        print('\n');
+        echo('\n');
+        $em->persist($team);
+
+        
+        // Create new test user
+        $user = new User('Bob');
+        print('new user created');
+        echo('\n');
+        
 
         // Create new relationship user -[in_team]-> team
         $user->addTeam($team, time());
         print('new user added to new team');
-        print('\n');
+        echo('\n');
         
         // persist all the things
-        $em->persist($team);
         $em->persist($user);
         $em->flush(); 
         print('flushed');die;

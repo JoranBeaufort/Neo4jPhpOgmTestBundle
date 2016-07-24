@@ -18,14 +18,14 @@ class UserTeam
     protected $id;
     
     /**
-     * @OGM\StartNode(targetEntity="\JoranBeaufort\Neo4jUserBundle\Entity\User")
-     * @var \JoranBeaufort\Neo4jUserBundle\Entity\User
+     * @OGM\StartNode(targetEntity="\JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\User")
+     * @var \JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\User
      */
     protected $user;
 
     /**
-     * @OGM\EndNode(targetEntity="\AppBundle\Entity\Team")
-     * @var \AppBundle\Entity\Team
+     * @OGM\EndNode(targetEntity="JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Team")
+     * @var JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Team
      */
     protected $team;
     
@@ -39,8 +39,8 @@ class UserTeam
 
     /**
      * UserResource constructor.
-     * @param \JoranBeaufort\Neo4jUserBundle\Entity\User $user
-     * @param \AppBundle\Entity\Team $team
+     * @param \JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\User $user
+     * @param \JoranBeaufort\Neo4jPhpOgmTestBundle\Team $team
      * @param int $joined
      */
     public function __construct(User $user, Team $team, $joined)
@@ -52,7 +52,7 @@ class UserTeam
 
         
     /**
-     * @return \JoranBeaufort\Neo4jUserBundle\Entity\User
+     * @return \JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\User
      */
     public function getUser()
     {
@@ -60,7 +60,7 @@ class UserTeam
     }
 
     /**
-     * @return \AppBundle\Entity\Team
+     * @return \JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Team
      */
     public function getTeam()
     {
