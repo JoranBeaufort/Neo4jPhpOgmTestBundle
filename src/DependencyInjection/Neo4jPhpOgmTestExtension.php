@@ -26,7 +26,7 @@ class Neo4jPhpOgmTestExtension extends Extension
         $loader->load('services.yml');
         
         // Once the services definition are read, get your service and add a method call to setConfig()
-        $serviceDefintion = $container->getDefinition( 'neo4j.graph_manager' );
+        $serviceDefintion = $container->getDefinition( 'neo4j_php_ogm_test.graph_manager' );
         $serviceDefintion->addMethodCall( 'setConfig', array( $config ) );
     }
 }
