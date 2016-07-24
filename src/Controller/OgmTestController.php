@@ -1,10 +1,9 @@
 <?php
 namespace JoranBeaufort\Neo4jPhpOgmTestBundle\Controller;
 
+use GraphAware\Neo4j\OGM\EntityManager;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\RedirectResponse;
-use Symfony\Component\Filesystem\Exception\IOExceptionInterface;
 
 use JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\User;
 use JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserTeam;
@@ -17,6 +16,7 @@ class OgmTestController extends Controller
     public function testAction(Request $request)
     {
         // Get the entity manager
+        /** @var EntityManager $em */
         $em = $this->get('neo4j_php_ogm_test.graph_manager')->getClient();
         
         // Create new test team
@@ -43,6 +43,7 @@ class OgmTestController extends Controller
         
         // persist all the things
         $em->persist($user);
+        $em->persist($team);
         $em->flush(); 
 
         $user = $em->getRepository(User::class)->findOneBy('username','Bob');
