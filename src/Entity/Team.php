@@ -1,4 +1,5 @@
 <?php
+
 namespace JoranBeaufort\Neo4jPhpOgmTestBundle\Entity;
 
 
@@ -25,7 +26,7 @@ class Team
     protected $name;
 
     /**
-     * @var UserTeam
+     * @var UserTeam[]
      *
      * @OGM\Relationship(relationshipEntity="UserTeam", direction="INCOMING", collection=true, mappedBy="team")
      */
@@ -49,9 +50,9 @@ class Team
     }
 
     /**
-     * @return \JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserTeam
+     * @return \JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserTeam[]
      */
-    public function getMemberships(): \JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\UserTeam
+    public function getMemberships()
     {
         return $this->memberships;
     }
