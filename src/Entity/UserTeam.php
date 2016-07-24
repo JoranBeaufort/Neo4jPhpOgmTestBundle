@@ -1,9 +1,9 @@
 <?php
-namespace AppBundle\Entity;
+namespace JoranBeaufort\Neo4jPhpOgmTestBundle\Entity;
 
 use GraphAware\Neo4j\OGM\Annotations as OGM;
-use JoranBeaufort\Neo4jUserBundle\Entity\User;
-use AppBundle\Entity\Resources;
+use JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\User;
+use JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Team;
 
 /**
  * @OGM\RelationshipEntity(type="IN_TEAM")

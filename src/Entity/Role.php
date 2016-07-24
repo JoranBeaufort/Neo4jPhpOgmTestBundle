@@ -1,5 +1,5 @@
 <?php
-namespace JoranBeaufort\Neo4jUserBundle\Entity;
+namespace JoranBeaufort\Neo4jPhpOgmTestBundle\Entity;
 
 // Remember to create the role nodes in the neo4j graph
 // create (r:Role{roleType:'ROLE_USER'})
@@ -9,7 +9,7 @@ use Doctrine\Common\Collections\ArrayCollection;
 use GraphAware\Neo4j\OGM\Annotations as OGM;
 
 /**
- * @OGM\Node(label="Role")
+ * @OGM\Node(label="TEST_Role")
  */
  
 class Role
@@ -54,7 +54,7 @@ class Role
 
     
     /**
-     * @return \Doctrine\Common\Collections\ArrayCollection|\JoranBeaufort\Neo4jUserBundle\Entity\User[]
+     * @return \Doctrine\Common\Collections\ArrayCollection|User[]
      */
     public function getUsers()
     {
@@ -62,7 +62,7 @@ class Role
     }
 
     /**
-     * @param JoranBeaufort\Neo4jUserBundle\Entity\User $user
+     * @param User $user
      */
     public function addUser(User $user)
     {
@@ -72,7 +72,7 @@ class Role
     }
 
     /**
-     * @param JoranBeaufort\Neo4jUserBundle\Entity\User $user
+     * @param User $user
      */
     public function removeUser(User $user)
     {

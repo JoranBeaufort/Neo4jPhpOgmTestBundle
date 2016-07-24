@@ -1,9 +1,9 @@
 <?php
-namespace AppBundle\Entity;
+namespace JoranBeaufort\Neo4jPhpOgmTestBundle\Entity;
 
 use GraphAware\Neo4j\OGM\Annotations as OGM;
-use JoranBeaufort\Neo4jUserBundle\Entity\User;
-use AppBundle\Entity\Tile;
+use JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\User;
+use JoranBeaufort\Neo4jPhpOgmTestBundle\Entity\Tile;
 
 /**
  * @OGM\RelationshipEntity(type="CAPTURED")

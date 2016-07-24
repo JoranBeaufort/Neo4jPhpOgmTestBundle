@@ -1,11 +1,11 @@
 <?php
-namespace AppBundle\Entity;
+namespace JoranBeaufort\Neo4jPhpOgmTestBundle\Entity;
 
 
 use GraphAware\Neo4j\OGM\Annotations as OGM;
 
 /**
- * @OGM\Node(label="Resources")
+ * @OGM\Node(label="TEST_Resources")
  */
  
 class Resources
@@ -21,72 +21,18 @@ class Resources
      * @var string
      */
      
-    protected $resourceType;
-    
-    
-    
-    /**
-     * @OGM\Property(type="string")
-     * @var string
-     */
-     
-    protected $name_DE;    
-    
-    /**
-     * @OGM\Property(type="string")
-     * @var string
-     */
-     
-    protected $icon;
-    
-    /**
-     * @OGM\Property(type="string")
-     * @var string
-     */
-     
-    protected $iconColour;
-    
-    /**
-     * @OGM\Property(type="string")
-     * @var string
-     */
-     
-    protected $colour;  
+    protected $name;
 
     
-    public function getId()
+    
+    public function setName($name)
     {
-        return $this->id;
+        $this->name = $name;
     }
     
-    public function getResourceType()
-    {
-        return $this->resourceType;
-    }
-
-    
-    public function getName_DE()
-    {
-        return $this->name_DE;
-    }
-
-    
-    public function getIcon()
+    public function getName()
     {
         return $this->icon;
     }
-
-    
-    public function getIconColour()
-    {
-        return $this->iconColour;
-    }
-    
-    public function getColour()
-    {
-        return $this->colour;
-    }
-    
-
     
 }

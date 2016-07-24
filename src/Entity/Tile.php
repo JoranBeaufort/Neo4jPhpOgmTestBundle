@@ -1,11 +1,11 @@
 <?php
-namespace AppBundle\Entity;
+namespace JoranBeaufort\Neo4jPhpOgmTestBundle\Entity;
 
 
 use GraphAware\Neo4j\OGM\Annotations as OGM;
 
 /**
- * @OGM\Node(label="Tile")
+ * @OGM\Node(label="TEST_Tile")
  */
  
 class Tile
